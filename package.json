@@ -1,0 +1,23 @@
+{
+  "name": "airbnb-wanderlust",
+  "version": "1.0.0",
+  "description": "full stack airbnb website",
+  "repository": {
+    "type": "git",
+    "url": "AirBnB"
+  },
+  "license": "ISC",
+  "author": "Aniket Mishra",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "ejs-mate": "^4.0.0",
+    "express": "^5.1.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.14.2"
+  }
+}
