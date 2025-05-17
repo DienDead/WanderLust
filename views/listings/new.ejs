@@ -1,19 +1,86 @@
 <%- layout("/layouts/boilerplate") %>
-<body>
-    <form action="/listings" method="post">
-        <h3>New Listing</h3>
-        <input type="text" name="listing[title]" placeholder="Enter title">
-        <br><br>
-        <textarea name="listing[description]" placeholder="Enter place description"></textarea>
-        <br><br>
-        <input type="number" name="listing[price]" placeholder="Enter price">
-        <br><br>
-        <input type="text" name="listing[image]" placeholder="Enter image URL">
-        <br><br>
-        <input type="text" name="listing[location]" placeholder="Enter location">
-        <br><br>
-        <input type="text" name="listing[country]" placeholder="Enter country">
-        <br><br>
-        <button>Add Lisiting</button>
-    </form>
-</body>
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+            <br>
+            <h3>Create New Listing</h3>
+            <form action="/listings" method="post" class="needs-validation" novalidate>
+                <div>
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="listing[title]"
+                        placeholder="Modern City Apartment in the Heart of Downtown" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Enter a valid title.
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]"
+                        placeholder="Details like the number of rooms, unique amenities, nearby attractions, and any special features."
+                        class="form-control" required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Enter a valid description.
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <label for="image" class="form-label">Image</label>
+                    <input type="url" name="listing[image]"
+                        placeholder="mage URL/Link (e.g., https://example.com/myplace.jpg)"
+                        class="form-control">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Enter a valid image URL.
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" name="listing[price]"
+                            placeholder="How much do you want to charge per night?" class="form-control" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Enter a valid price.
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="search" name="listing[country]"
+                            placeholder="Which nation is your property located in?" class="form-control" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Enter a valid country.
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" name="listing[location]"
+                        placeholder="Enter the full address or nearest landmark (e.g., Connaught Place, New Delhi)"
+                        class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Enter a location.
+                    </div>
+                </div>
+                <br><br>
+                <button class="btn btn-dark mb-5 add-btn">Add Location</button>
+                <br><br>
+            </form>
+        </div>
+    </div>
