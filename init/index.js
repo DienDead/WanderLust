@@ -23,7 +23,7 @@ const initDB = async () => {
 };
 
 initDB().then(()=>{
-    console.log("Data Insertedd successfully");
+    console.log("Data Inserted successfully");
 }).catch((err)=>{
     console.log("Error inserting data");
     console.log(err);

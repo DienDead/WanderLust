@@ -10,6 +10,7 @@ const port = 8080;
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.engine("ejs",ejsMate);
 
 app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended: true}));
@@ -28,7 +29,7 @@ async function main(){
 }
 
 app.get('/',(req,res)=>{
-    res.send('This is root');
+    res.redirect("/listings");
 });
 
 // LISTINGS (Index Route)
