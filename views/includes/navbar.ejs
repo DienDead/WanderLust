@@ -7,8 +7,23 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link active" href="/">Home</a>
-                <a class="nav-link" href="/listings">All Listings</a>
-                <a class="nav-link" href="/listings/new">Add New Listing</a>
+                <a class="nav-link active" href="/listings">All Listings</a>
+                <a class="nav-link active" href="/listings/new">Add New Listing</a>
+            </div>
+            <div class="navbar-nav ms-auto">
+                <% if (currentUser) { %>
+                            <a class="nav-link active" href="/logout"><b>Logout</b></a>
+                <% } else { %>
+                <div class="dropdown">
+                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="fa-solid fa-bars hamburger"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="/signup">SignUp</a></li>
+                                <li><a class="dropdown-item" href="/login">Login</a></li>
+                    </ul>
+                </div>
+                <% } %>
             </div>
         </div>
     </div>

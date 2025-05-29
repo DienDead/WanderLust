@@ -11,7 +11,6 @@ body {
 
 /* NAVBAR */
 .navbar {
-    height: 5rem;
     background-color: white;
 }
 
@@ -22,6 +21,10 @@ body {
 
 .nav-link {
     color: #222222 !important;
+}
+
+.hamburger{
+    font-size: 1.5rem;
 }
 
 
@@ -61,7 +64,7 @@ body {
 }
 
 /* CARDs */
-.card {
+.listing-card {
     border: none !important;
     margin-bottom: 2rem;
 }
