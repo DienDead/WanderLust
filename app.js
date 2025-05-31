@@ -10,10 +10,13 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
-
 const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/reviews.js");
 const usersRouter = require("./routes/user.js");
+
+if(process.env.NODE_ENV != "production"){
+    require('dotenv').config();
+}
 
 const port = 8080;
 
@@ -65,21 +68,10 @@ async function main() {
     await mongoose.connect(MONGO_URL);
 }
 
-
 // Home Page (Root)
 app.get('/', (req, res) => {
     res.redirect("/listings");
 });
-
-app.get("/demoUser",async (req,res)=>{
-    let fakeUser = new User({
-        email: "student@gmail.com",
-        username: "studentDebu"
-    });
-
-    let newUser = await User.register(fakeUser,"helloWorld");
-    console.log(newUser);
-})
 
 //Listings Path
 app.use("/listings", listingsRouter);

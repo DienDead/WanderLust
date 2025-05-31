@@ -56,9 +56,16 @@ const listingSchema = new Schema({
         required: true
     },
     image: {
-        type: String,
-        default: link,
-        set: (v)=>v===""?link:v,
+        url:{
+            type: String,
+            default: link,
+            set: (v)=>v===""?link:v,
+        },
+        filename:{
+            type: String,
+            default: "listing_img",
+            set: (v)=>v==""?"listing_img":v,
+        }
     },
     country: {
         type: String,
