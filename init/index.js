@@ -5,7 +5,7 @@ const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const mapToken = "pk.eyJ1IjoiZDM4dW0xcyIsImEiOiJjbWJjbHZ3c3YxbXFpMmxzMXB1c3AyeDhiIn0.a4vI5oY6g2NHJnBclAVSkA";
 const geoCodingClient = mbxGeocoding({ accessToken: mapToken });
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+const MONGO_URL = "mongodb+srv://debu:jpcE2dZ1f0rom67U@movie0.ntnyaar.mongodb.net/?retryWrites=true&w=majority&appName=movie0";
 
 main()
   .then(() => {
@@ -21,7 +21,7 @@ async function main() {
 
 const initDB = async () => {
   await Listing.deleteMany({});
-  initData.data = initData.data.map((obj)=>({...obj, owner: "68384fdf6ede52d553b777d7"}));
+  initData.data = initData.data.map((obj)=>({...obj, owner: "683c7b88f72d914a68e827cb"}));
   await Listing.insertMany(initData.data);
   console.log("data was initialized");
 };

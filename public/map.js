@@ -8,6 +8,9 @@ const map = new mapboxgl.Map({
 
 console.log(mapCoordinates);
 
-const marker = new mapboxgl.Marker()
+const marker = new mapboxgl.Marker({color: "red"})
     .setLngLat(mapCoordinates)
+    .setPopup(new mapboxgl.Popup({offset: 25})
+    .setHTML(`<h4>${listing.location}</h4><p>Exact location post-booking</p>`)
+    .setMaxWidth("300px"))
     .addTo(map);

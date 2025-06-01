@@ -13,6 +13,9 @@ const User = require("./models/user.js");
 const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/reviews.js");
 const usersRouter = require("./routes/user.js");
+const MongoStore = require("connect-mongo");
+
+const MONGO_URL = process.env.MONGO_URL;
 
 if(process.env.NODE_ENV != "production"){
     require('dotenv').config();
@@ -20,8 +23,21 @@ if(process.env.NODE_ENV != "production"){
 
 const port = 8080;
 
+const store = MongoStore.create({
+    mongoUrl: MONGO_URL,
+    crypto:{
+        secret: process.env.SECRET_SESSION
+    },
+    touchAfter: 24*3600,
+});
+
+store.on("error",()=>{
+    console.log("Error In MongoSession Store",err);
+});
+
 const sessionOptions = {
-    secret: "randomSecretsAreWrittenHere",
+    store,
+    secret: process.env.SECRET_SESSION_OPT,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -53,8 +69,6 @@ app.use((req,res,next)=>{
     res.locals.currentUser = req.user;
     next();
 })
-
-const MONGO_URL = 'mongodb://localhost:27017/wanderlust';
 
 //Catch Error during DB connection establishment
 main().then(res => {

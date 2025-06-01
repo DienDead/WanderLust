@@ -1,3 +1,13 @@
+<style>
+    .search-box{
+        border-radius: 25px;
+        text-align: center;
+    }
+    .search{
+        border-radius: 50%;
+    }
+</style>
+
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-md-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="/"><i class="fa-regular fa-compass"></i></a>
@@ -6,24 +16,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" href="/">Home</a>
-                <a class="nav-link active" href="/listings">All Listings</a>
-                <a class="nav-link active" href="/listings/new">Add New Listing</a>
+                <a class="nav-link active" href="/listings">Explore</a>
             </div>
+            <!-- <div class="navbar-nav ms-auto">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 search-box" type="search" placeholder="Search destinations" aria-label="Search" />
+                    <button class="btn btn-outline-danger search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div> -->
             <div class="navbar-nav ms-auto">
+                <a class="nav-link active" href="/listings/new">Add to WanderLust</a>
                 <% if (currentUser) { %>
-                            <a class="nav-link active" href="/logout"><b>Logout</b></a>
-                <% } else { %>
-                <div class="dropdown">
-                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
-                        <i class="fa-solid fa-bars hamburger"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="/signup">SignUp</a></li>
-                                <li><a class="dropdown-item" href="/login">Login</a></li>
-                    </ul>
-                </div>
-                <% } %>
+                    <a class="nav-link active" href="/logout"><b>Logout</b></a>
+                    <% } else { %>
+                        <a class="nav-link active" href="/signup"><b>SignUp</b></a>
+                        <a class="nav-link active" href="/login"><b>Login</b></a>
+                        <% } %>
             </div>
         </div>
     </div>

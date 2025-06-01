@@ -10,7 +10,7 @@ const sampleListings = [
     price: 1500,
     location: "Malibu",
     country: "United States",
-    geometry: { type: 'Point', coordinates: [ -86.58756, 36.32677 ] }
+    geometry: { type: 'Point', coordinates: [ -118.6923, 34.0381 ] }
   },
   {
     title: "Modern Loft in Downtown",
@@ -23,7 +23,7 @@ const sampleListings = [
     price: 1200,
     location: "New York City",
     country: "United States",
-    geometry: { type: 'Point', coordinates: [ -86.85176, 21.16188 ] }
+    geometry: { type: 'Point', coordinates: [ -74.006, 40.7128 ] }
   },
   {
     title: "Mountain Retreat",
@@ -36,7 +36,7 @@ const sampleListings = [
     price: 1000,
     location: "Aspen",
     country: "United States",
-    geometry: { type: 'Point', coordinates: [ -118.68561, 34.03688 ] }
+    geometry: { type: 'Point', coordinates: [ -106.819217, 39.190681 ] }
   }, 
   {
     title: "Historic Villa in Tuscany",
@@ -49,7 +49,7 @@ const sampleListings = [
     price: 2500,
     location: "Florence",
     country: "Italy",
-    geometry: { type: 'Point', coordinates: [ 98.38732, 7.88346 ] }
+    geometry: { type: 'Point', coordinates: [ 11.2558, 43.7696 ] } // Florence, Italy
   },
   {
     title: "Secluded Treehouse Getaway",
@@ -153,7 +153,7 @@ const sampleListings = [
     price: 10000,
     location: "Fiji",
     country: "Fiji",
-    geometry: { type: 'Point', coordinates: [ -74.005994, 40.712749 ] }
+    geometry: { type: 'Point', coordinates: [ 178.0650, -17.7134 ] } // Fiji
   }, 
   {
     title: "Charming Cottage in the Cotswolds",
@@ -192,7 +192,7 @@ const sampleListings = [
     price: 1800,
     location: "Bali",
     country: "Indonesia",
-    geometry: { type: 'Point', coordinates: [ -79.938628, 32.789284 ] }
+    geometry: { type: 'Point', coordinates: [ 115.1398, -8.4095 ] } // Bali, Indonesia
   },
   {
     title: "Mountain View Cabin in Banff",
@@ -205,7 +205,7 @@ const sampleListings = [
     price: 1500,
     location: "Banff",
     country: "Canada",
-    geometry: { type: 'Point', coordinates: [ -94.695003, 39.200796 ] }
+    geometry: { type: 'Point', coordinates: [ -115.5708, 51.1784 ] }
   },
   {
     title: "Art Deco Apartment in Miami",
@@ -257,7 +257,7 @@ const sampleListings = [
     price: 5000,
     location: "Dubai",
     country: "United Arab Emirates",
-    geometry: { type: 'Point', coordinates: [ 178.4406, -18.1456 ] }
+    geometry: { type: 'Point', coordinates: [ 55.2708, 25.2048 ] } // Dubai
   },
   {
     title: "Rustic Log Cabin in Montana",

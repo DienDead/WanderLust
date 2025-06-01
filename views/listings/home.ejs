@@ -1,9 +1,79 @@
 <%- layout("/layouts/boilerplate") %>
-    <h3>All Listings</h3>
-    <!-- <form action="/listings/new" method="get">
-            <button>Create new Listing</button>
-        </form> -->
+    <style>
+        .filters {
+            margin: 2rem
+        }
 
+        .filter {
+            opacity: 0.7;
+        }
+
+        .filter:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .tax-info {
+            display: none;
+        }
+
+        .tax-toggle {
+            border: 1px solid rgb(138, 138, 138);
+            border-radius: 1rem;
+            height: 3rem;
+            width: 12.5rem;
+            padding: 0.5rem;
+            justify-content: center;
+        }
+
+        .form-switch .form-check-input:checked {
+            background-color: red !important;
+        }
+    </style>
+    <div class="filters justify-content-evenly row row-cols-lg-6 row-cols-md-4 row-cols-sm-3">
+        <div class="filter d-flex flex-column align-items-center mt-3 w-25">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
+        </div>
+        <div class="filter d-flex flex-column align-items-center mt-3 w-25">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p>Rooms</p>
+        </div>
+        <div class="filter d-flex flex-column align-items-center mt-3 w-25">
+            <div><i class="fa-solid fa-mountain-city"></i></div>
+            <p>Iconic Cities</p>
+        </div>
+        <div class="filter d-flex flex-column align-items-center mt-3 w-25">
+            <div><i class="fa-solid fa-mountain"></i></div>
+            <p>Mountains</p>
+        </div>
+        <div class="filter d-flex flex-column align-items-center mt-3 w-25">
+            <div><i class="fa-brands fa-fort-awesome"></i></div>
+            <p>Castles</p>
+        </div>
+        <div class="filter d-flex flex-column align-items-center mt-3 w-25">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+            <p>Pools</p>
+        </div>
+        <div class="filter d-flex flex-column align-items-center mt-3 w-25">
+            <div><i class="fa-solid fa-campground"></i></div>
+            <p>Camping</p>
+        </div>
+        <div class="filter d-flex flex-column align-items-center mt-3 w-25">
+            <div><i class="fa-solid fa-tractor"></i></div>
+            <p>Farms</p>
+        </div>
+    </div>
+    <br>
+    <p class="blockquote-footer text-center text-bg-dark">ABOVE ICONS ARE FOR UI ONLY. DEVELOPERS ARE WORKING ON
+        INITIATING THEM</p>
+    <div class="tax-toggle d-flex flex-row-reverse">
+        <div class="form-check-reverse form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+            <label class="form-check-label" for="switchCheckDefault">Display with Taxes</label>
+        </div>
+    </div>
+    <br>
     <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1">
         <% for(let listing of allListings) { %>
             <a href="listings/<%= listing._id %>" class="listing-link">
@@ -16,9 +86,20 @@
                                 <%= listing.title %>
                             </b><br>
                             &#8377; <%= listing.price.toLocaleString("en-IN") %> / night
+                                <i class="tax-info">&nbsp; +18% GST</i>
                         </p>
                     </div>
                 </div>
             </a>
             <% } %>
     </div>
+
+    <script>
+        let taxBtn = document.getElementById("switchCheckDefault");
+        taxBtn.addEventListener("click", () => {
+            let taxInfo = document.getElementsByClassName("tax-info");
+            for (info of taxInfo) {
+                info.style.display = info.style.display != "inline" ? "inline" : "none";
+            }
+        })
+    </script>
