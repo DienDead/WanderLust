@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 const initData = require("./data.js");
 const Listing = require("../models/listing.js");
+const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
+const mapToken = "pk.eyJ1IjoiZDM4dW0xcyIsImEiOiJjbWJjbHZ3c3YxbXFpMmxzMXB1c3AyeDhiIn0.a4vI5oY6g2NHJnBclAVSkA";
+const geoCodingClient = mbxGeocoding({ accessToken: mapToken });
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 

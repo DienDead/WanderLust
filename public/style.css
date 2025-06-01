@@ -23,7 +23,7 @@ body {
     color: #222222 !important;
 }
 
-.hamburger{
+.hamburger {
     font-size: 1.5rem;
 }
 
@@ -113,4 +113,11 @@ body {
 .btns {
     display: flex;
 
+}
+
+/* MAP */
+
+#map {
+    height: 500px;
+    width: 80vh;
 }

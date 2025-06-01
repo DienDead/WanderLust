@@ -1,4 +1,8 @@
+require('dotenv').config();
 const Listing = require("../models/listing");
+const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
+const mapToken = process.env.MAP_TOKEN;
+const geoCodingClient = mbxGeocoding({ accessToken: mapToken });
 
 module.exports.index = async (req, res) => {
     const allListings = await Listing.find({});
@@ -10,12 +14,17 @@ module.exports.renderNewForm = async (req, res) => {
 };
 
 module.exports.createListing = async (req, res) => {
+    let response = await geoCodingClient.forwardGeocode({
+        query: req.body.listing.location,
+        limit: 1
+    }).send();
     let url = req.file.path;
     let fileName = req.file.filename;
     const newListing = new Listing(req.body.listing);
     newListing.owner = req.user._id;
     newListing.image = { url, fileName };
-    await newListing.save();
+    newListing.geometry = response.body.features[0].geometry;
+    console.log(await newListing.save());
     req.flash("success", "New Listing Created");
     return res.redirect('/listings');
 };
@@ -27,7 +36,10 @@ module.exports.renderEditForm = async (req, res) => {
         req.flash("error", "Requested Listing doesn't exist");
         return res.redirect("/listings");
     }
-    return res.render("listings/update.ejs", { listing });
+
+    let originalImg = listing.image.url;
+    originalImg = originalImg.replace("/upload", "/upload/w_250");
+    return res.render("listings/update.ejs", { listing, originalImg });
 };
 
 module.exports.updateListing = async (req, res) => {

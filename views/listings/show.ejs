@@ -1,4 +1,8 @@
 <%- layout("/layouts/boilerplate") %>
+<script>
+    const mapToken = "<%= process.env.MAP_TOKEN %>" ;
+    const mapCoordinates = <%- JSON.stringify(listing.geometry.coordinates) %> ;
+</script>
     <div class="row mt-3">
         <div class="col-12 offset-2">
             <h3><b>
@@ -94,4 +98,13 @@
                     <% } else { %>
                         <p class="blockquote-footer">Be the first one to review this listing</p>
                         <% } %>
+                        <br>
+                            <hr>
     </div>
+    <br>
+    <div class="col-6 offset-2 mb-3">
+        <h3>Where you'll be</h3>
+        <div id="map"></div>
+    </div>
+
+    <script src="/map.js"></script>

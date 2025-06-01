@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Review = require("./review");
+const { required } = require("joi");
 
 let link="https://images.unsplash.com/photo-1746513791663-e1fcea6208ac?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw4N3x8fGVufDB8fHx8fA%3D%3D";
 
@@ -81,8 +82,16 @@ const listingSchema = new Schema({
     owner: {
         type: Schema.Types.ObjectId,
         ref: "User"
+    },
+    geometry: {
+        type: {
+            type: String,
+            enum: ['Point'],
+        },
+        coordinates:{
+            type: [Number],
+        }
     }
-
 });
 
 listingSchema.post("findOneAndDelete", async(listing) =>{
